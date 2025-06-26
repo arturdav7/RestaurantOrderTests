@@ -1,0 +1,8 @@
+{
+    "unitTestProvider": {
+        "name": "NUnit"
+    },
+    "language": {
+        "name": "en"
+    }
+}
