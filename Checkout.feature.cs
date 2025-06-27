@@ -74,14 +74,14 @@ namespace RestaurantOrderTests
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Four people, each orders 1 starter, 1 main, and 1 drink at 15:00")]
+        [NUnit.Framework.DescriptionAttribute("Four people order, each orders 1 starter, 1 main, and 1 drink at 15:00")]
         [NUnit.Framework.CategoryAttribute("tag1")]
-        public void FourPeopleEachOrders1Starter1MainAnd1DrinkAt1500()
+        public void FourPeopleOrderEachOrders1Starter1MainAnd1DrinkAt1500()
         {
             string[] tagsOfScenario = new string[] {
                     "tag1"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Four people, each orders 1 starter, 1 main, and 1 drink at 15:00", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Four people order, each orders 1 starter, 1 main, and 1 drink at 15:00", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 5
   this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -106,14 +106,14 @@ namespace RestaurantOrderTests
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Before 19:00, then 2 more people arrive at 20:00 to order 2 mains and 2 drinks")]
+        [NUnit.Framework.DescriptionAttribute("Two people order before 19:00, and two more join at 20:00 to add items")]
         [NUnit.Framework.CategoryAttribute("tag2")]
-        public void Before1900Then2MorePeopleArriveAt2000ToOrder2MainsAnd2Drinks()
+        public void TwoPeopleOrderBefore1900AndTwoMoreJoinAt2000ToAddItems()
         {
             string[] tagsOfScenario = new string[] {
                     "tag2"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Before 19:00, then 2 more people arrive at 20:00 to order 2 mains and 2 drinks", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Two people order before 19:00, and two more join at 20:00 to add items", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 11
   this.ScenarioInitialize(scenarioInfo);
 #line hidden

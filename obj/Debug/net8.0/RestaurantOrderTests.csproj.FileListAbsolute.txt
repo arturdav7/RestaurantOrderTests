@@ -168,3 +168,4 @@ C:\Users\artur\source\repos\RestaurantOrderTests\RestaurantOrderTests\obj\Debug\
 C:\Users\artur\source\repos\RestaurantOrderTests\RestaurantOrderTests\obj\Debug\net8.0\RestaurantOrderTests.pdb
 C:\Users\artur\source\repos\RestaurantOrderTests\RestaurantOrderTests\obj\Debug\net8.0\RestaurantOrderTests.genruntimeconfig.cache
 C:\Users\artur\source\repos\RestaurantOrderTests\RestaurantOrderTests\obj\Debug\net8.0\ref\RestaurantOrderTests.dll
+C:\Users\artur\source\repos\RestaurantOrderTests\RestaurantOrderTests\obj\Debug\net8.0\RestaurantOrderTests.sourcelink.json

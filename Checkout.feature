@@ -2,13 +2,13 @@
 Feature: Checkout total calculation
 
 @tag1
-  Scenario: Four people, each orders 1 starter, 1 main, and 1 drink at 15:00
+  Scenario: Four people order, each orders 1 starter, 1 main, and 1 drink at 15:00
     Given the order is 4 starters, 4 mains, 4 drinks at "15:00"
     When I calculate the total
     Then the total should be 55.40
 
 @tag2
-  Scenario: Before 19:00, then 2 more people arrive at 20:00 to order 2 mains and 2 drinks
+  Scenario: Two people order before 19:00, and two more join at 20:00 to add items
     Given the order is 1 starter, 2 mains, 2 drinks at "18:30"
     When I calculate the total and store it temporarily
     Then the intermediate total should be 23.30
