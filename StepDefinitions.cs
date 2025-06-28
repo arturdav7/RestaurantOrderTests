@@ -10,7 +10,7 @@ namespace RestaurantOrderTests
     [Binding]
     public class StepDefinitions
     {
-        private class OrderCollection
+        private class Order
         {
             public int Starters { get; set; }
             public int Mains { get; set; }
@@ -18,7 +18,7 @@ namespace RestaurantOrderTests
             public DateTime Time { get; set; }
         }
 
-        private List<OrderCollection> _orders = new();
+        private List<Order> _orders = new();
         private decimal _total;
         private decimal _intermediateTotal;
         private OrderCalculator _calculator = new OrderCalculator();
@@ -28,7 +28,7 @@ namespace RestaurantOrderTests
         public void CreateOrder(int starters, int mains, int drinks, string time)
         {
             DateTime orderTime = DateTime.ParseExact(time, "HH:mm", CultureInfo.InvariantCulture);
-            _orders.Add(new OrderCollection
+            _orders.Add(new Order
             {
                 Starters = starters,
                 Mains = mains,
@@ -42,7 +42,7 @@ namespace RestaurantOrderTests
         public void JoinParty(int people, string time, int mains, int drinks)
         {
             DateTime joinTime = DateTime.ParseExact(time, "HH:mm", CultureInfo.InvariantCulture);
-            _orders.Add(new OrderCollection
+            _orders.Add(new Order
             {
                 Starters = 0,
                 Mains = mains,
@@ -81,13 +81,13 @@ namespace RestaurantOrderTests
             decimal totalSum = 0;
             foreach (var order in _orders)
             {
-                Console.WriteLine($"[TOTAL] Calculating for order at {order.Time:HH:mm} → " +
+                Console.WriteLine($"TOTAL - Calculating for order at {order.Time:HH:mm} → " +
                           $"Starters: {order.Starters}, Mains: {order.Mains}, Drinks: {order.Drinks}");
 
                 totalSum += _calculator.CalculateBill(order.Starters, order.Mains, order.Drinks, order.Time);
             }
             _total = Math.Round(totalSum, 2);
-            Console.WriteLine($"[TOTAL] Final Total: £{_total}");
+            Console.WriteLine($"TOTAL - Final Total: £{_total}");
         }
 
         // Calculate total and store as a temporary/intermediate total
@@ -97,24 +97,24 @@ namespace RestaurantOrderTests
             decimal intermediateSum = 0;
             foreach (var order in _orders)
             {
-                Console.WriteLine($"[INTERMEDIATE] Calculating for order at {order.Time:HH:mm} → " +
+                Console.WriteLine($"INTERMEDIATE - Calculating for order at {order.Time:HH:mm} → " +
                           $"Starters: {order.Starters}, Mains: {order.Mains}, Drinks: {order.Drinks}");
 
                 intermediateSum += _calculator.CalculateBill(order.Starters, order.Mains, order.Drinks, order.Time);
             }
             _intermediateTotal = Math.Round(intermediateSum, 2);
-            Console.WriteLine($"[INTERMEDIATE] Stored Intermediate Total: £{_intermediateTotal}");
+            Console.WriteLine($"INTERMEDIATE - Stored Intermediate Total: £{_intermediateTotal}");
         }
 
         // Assert: check if the total matches expected
-        [Then(@"the total should be (.*)")]
+        [Then(@"the total should be (\d+\.\d{2})")]
         public void CheckTotal(decimal expected)
         {
             Assert.That(_total, Is.EqualTo(expected));
         }
 
         // Assert: check if the intermediate total matches expected
-        [Then(@"the intermediate total should be (.*)")]
+        [Then(@"the intermediate total should be (\d+\.\d{2})")]
         public void CheckIntermediateTotal(decimal expected)
         {
             Assert.That(_intermediateTotal, Is.EqualTo(expected));
